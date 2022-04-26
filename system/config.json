@@ -1,0 +1,12 @@
+{
+    "global": {
+        "model": "../app/models/",
+        "controller": "../app/controllers/",
+        "library": "../app/libraries/",
+        "config": "../config/",
+        "config_json": "../app-config.json",
+        "middleware": "../app/middleware/",
+        "core": "../core/",
+        "validator": "../core/request_data"
+    }
+}

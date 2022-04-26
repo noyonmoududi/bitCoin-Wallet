@@ -1,0 +1,68 @@
+<%- include('../../layout/header'); -%>
+<div class="container">
+    <div class="card mt-3">
+        <div class="card-body ">
+            <h1 class="text-center text-capitalize">Withdraw</h1>
+            <hr>
+            <div class="row">
+
+                <div class="col-lg-5 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid"
+                         src="https://chart.apis.google.com/chart?cht=qr&amp;chs=300x300&amp;chld=L|0&amp;chl=<%= wallet.currencySymbol %>:<%- wallet.address %>">
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="form ml-3 mb-5">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="wallet-address"
+                                   placeholder="User's address" aria-label="User's address"
+                                   aria-describedby="basic-addon2"
+                                   value=" <%- wallet.address %>" readonly>
+                            <div class="input-group-append">
+                                        <a class="btn btn-success btn-copy" data-copy="<%- wallet.address %>">COPY</a>
+                            </div>
+                        </div>
+                        <div class="text-left ml-0">
+                            <p class="font-weight-600 text-capitalize">Available Balance :</p>
+                            <h5><%= Number(wallet.balance).toFixed(8) %><b> <%- wallet.currencySymbol %></b></h5>
+                        </div>
+                        <div class="text-left ml-0">
+                            <p class="font-weight-600 text-capitalize">Unconfirm Balance :</p>
+                            <h5><%= Number(wallet.unconfirmedBalance).toFixed(8) %><b> <%- wallet.currencySymbol %></b></h5>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <form action="/withdraw/<%=wallet.address %>" method="post">
+                            <div class="form-group">
+                                <input type="hidden" name="available_balance"
+                                       value="<%= Number(wallet.balance).toString() %>">
+                                <input type="hidden" name="currency"
+                                       value="<%= wallet.currencySymbol %>">
+                                <label for="to_address"
+                                       class="text-capitalize">To Address</label>
+                                <input required type="text" class="form-control" id="to_address"
+                                       name="to_address" aria-describedby="to address"
+                                       placeholder="To address">
+                                <small class="text-red"><%= (typeof errors != 'undefined' && errors.to_address) ? errors.to_address[lang] : ''; %></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="send_amount"
+                                       class="text-capitalize">Send Amount</label>
+                                <input required type="number" step="any" class="form-control"
+                                       id="send_amount" name="send_amount"
+                                       placeholder="Send amount">
+                                <small class="text-red"><%= (typeof errors != 'undefined' && errors.send_amount) ? errors.send_amount[lang] : ''; %></small>
+                            </div>
+                            <a href="/wallet"
+                               class="text-capitalize btn btn-info mb-2 ">Back</a>
+                            <button type="submit"
+                                    class="btn btn-success mb-2 ">Withdraw</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<%- include('../../layout/footer'); -%>

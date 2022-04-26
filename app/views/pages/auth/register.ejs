@@ -1,0 +1,60 @@
+<%- include('../../layout/header'); -%>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="page-title">Register here</h1>
+        <b>Please fill the form for primary registration</b>
+    </div>
+    <hr>
+    <div class="col-md-6 mx-auto">
+
+        <form action="/register" method="POST">
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="first_name">First Name<span class="text-danger">*</span>:</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" value="<%- (typeof old !='undefined')?old.first_name:''; %>">
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.first_name)?errors.first_name:''; %></small>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="last_name">Last Name<span class="text-danger">*</span>:</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" value="<%- (typeof old !='undefined')?old.last_name:''; %>">
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.last_name)?errors.last_name:''; %></small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="email">E-mail<span class="text-danger">*</span>:</label>
+                        <input type="email" class="form-control" id="email" name="email" value="<%- (typeof old !='undefined')?old.email:''; %>">
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.email)?errors.email:''; %></small>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="password">Password<span class="text-danger">*</span>:</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.password)?errors.password:''; %></small>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12">
+                    <div class="form-group">
+                        <label for="pwd">Confirm Password<span class="text-danger">*</span>:</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                        <small class="text-danger"><%= (typeof errors != 'undefined' && errors.confirm_password)?errors.confirm_password:''; %></small>
+                    </div>
+                </div>
+                <div class="text-center col-12">
+                    <button type="submit" class="btn btn-info" href="/register">Register Now</button>
+                    <a class="btn btn-success" href="/login">Login here</a>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('../../layout/footer'); -%>

@@ -1,0 +1,27 @@
+<%- include('../../layout/header'); -%>
+<div class="container">
+    <div class="text-center">
+        <h1 class="page-title">Create Wallet</h1>
+    </div>
+    <hr>
+    <div class="col-md-6 mx-auto">
+        <form action="/createWallet" method="POST">
+
+            <div>
+                <div class="form-group">
+                    <label><b>Currency:</b></label>
+                    <select class="form-control" id="currency" name="currency" required>
+                        <% currencieData.forEach((currency)=>{ %>
+                        <option value="<%- currency.symbol %>"><%- currency.symbol %></option>
+                        <% }) %>
+                    </select>
+                    <!-- <input type="text" class="form-control" id="currency" name="currency" required> -->
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('../../layout/footer'); -%>

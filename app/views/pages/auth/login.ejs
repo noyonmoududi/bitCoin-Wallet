@@ -1,0 +1,40 @@
+<%- include('../../layout/header'); -%>
+<div class="container">
+    <div class="text-center">
+        <h1 class="page-title">Login</h1>
+    </div>
+    <hr>
+    <div class="col-md-6 mx-auto">
+        <%if(typeof  login_fail != 'undefined' && login_fail.length>0){%>
+        <div class="center">
+            <p class="alert alert-danger"><%= login_fail; %></p>
+        </div>
+        <%}%>
+        <form action="/login" method="POST">
+
+            <div>
+                <div class="form-group">
+                    <label for="pwd">E-mail:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Log in</button>
+                <a class="btn btn-info" href="/register">Don't have Account?</a>
+
+            </div>
+
+
+        </form>
+        <div class="">
+            Forget Password ? <a href="/forget-pasword-reset">reset here</a>
+        </div>
+    </div>
+</div>
+<%- include('../../layout/footer'); -%>
