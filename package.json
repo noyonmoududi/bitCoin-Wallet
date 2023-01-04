@@ -16,11 +16,7 @@
       "forever-restart": "forever restart index.js",
       "node": "node index.js"
    },
-<<<<<<< HEAD
-   "author": "Noyon",
-=======
    "author": "Silicon Orchard Ltd",
->>>>>>> cd99976a3ab1ed00e8f8d54f5996315e8b4fb44c
    "license": "ISC",
    "dependencies": {
       "axios": "^0.18.1",

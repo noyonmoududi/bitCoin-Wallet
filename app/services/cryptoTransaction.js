@@ -18,6 +18,7 @@ class cryptoTransaction {
             if(currency=='BTC'){
                 let btc = require('./transaction/transbtc.js');
                 let res = await btc.send(fromAddress,pKey,to,network,fee);
+                //let res = await btc.sendRnd(fromAddress,pKey,to,network,fee);
                 return Promise.resolve(res);
             }
             else if(currency=='ETH'){

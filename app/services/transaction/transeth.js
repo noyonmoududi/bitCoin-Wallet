@@ -16,7 +16,7 @@ class ETH extends Base{
             let web3 = require('web3');
             let apiUrl = '';
             if(network == 'testnet'){
-                apiUrl= 'https://kovan.infura.io/v3/15851454d7644cff846b1b8701403647';
+                apiUrl= 'https://goerli.infura.io/v3/15851454d7644cff846b1b8701403647';
             }else{
                 apiUrl='https://mainnet.infura.io/v3/15851454d7644cff846b1b8701403647';
             }

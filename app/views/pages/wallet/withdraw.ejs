@@ -40,6 +40,7 @@
                                        value="<%= wallet.currencySymbol %>">
                                 <label for="to_address"
                                        class="text-capitalize">To Address</label>
+                                       <p class="text-warning">If you send multiple amount to multiple address use (comma,) for multiple address</p>
                                 <input required type="text" class="form-control" id="to_address"
                                        name="to_address" aria-describedby="to address"
                                        placeholder="To address">
@@ -48,7 +49,8 @@
                             <div class="form-group">
                                 <label for="send_amount"
                                        class="text-capitalize">Send Amount</label>
-                                <input required type="number" step="any" class="form-control"
+                                       <p class="text-warning">If you send multiple amount to multiple address use (comma,) for multiple amount</p>
+                                <input required type="text" step="any" class="form-control"
                                        id="send_amount" name="send_amount"
                                        placeholder="Send amount">
                                 <small class="text-red"><%= (typeof errors != 'undefined' && errors.send_amount) ? errors.send_amount[lang] : ''; %></small>
@@ -58,6 +60,7 @@
                             <button type="submit"
                                     class="btn btn-success mb-2 ">Withdraw</button>
                         </form>
+                        
                     </div>
                 </div>
             </div>

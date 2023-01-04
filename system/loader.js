@@ -67,9 +67,6 @@ controller = (controllerPath) => {
 };
 back = (req, res) => {
     return res.redirect(req.header('Referer') || '/');
-<<<<<<< HEAD
-};
-=======
 }
 currentDateTime = (format = 'YYYY-MM-DD H:m:ss') => {
     return moment().tz(Config.timezone).format(format);
@@ -77,4 +74,3 @@ currentDateTime = (format = 'YYYY-MM-DD H:m:ss') => {
 currentDate = (format = 'YYYY-MM-DD') => {
     return moment().tz(Config.timezone).format(format);
 }
->>>>>>> cd99976a3ab1ed00e8f8d54f5996315e8b4fb44c
